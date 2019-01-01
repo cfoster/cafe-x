@@ -20,6 +20,11 @@ object SteakSandwich extends HotFood{
   val price= 4.50f
 }
 
+object Menu {
+  private val items=List(Cola, Coffee, CheeseSandwich, SteakSandwich)
+  val menuMap: Map[String, Item] =items.map(item=>item.label->item).toMap
+}
+
 trait Item {
   val label: String
   val price: Float

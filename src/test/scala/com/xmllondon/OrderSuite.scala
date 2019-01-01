@@ -59,4 +59,14 @@ class OrderSuite extends FunSuite
     assert(emptyOrder.total == 0)
   }
 
+  test("Take a list of item names, including bad names") {
+    val nameList=List("Cola", "Coffee", "Cheese Sandwich", "**unknown**")
+
+    val items=nameList.flatMap(Menu.menuMap.get)
+
+    val order=Order(items: _*)
+
+    assert(order.total == 3.85f)
+  }
+
 }
